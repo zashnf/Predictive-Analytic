@@ -1,32 +1,31 @@
-
 # Domain proyek
-Diabetes merupakan penyakit kronis yang disebabkan oleh gagalnya organ pankreas memproduksi jumlah hormon insulin secara memadai sehingga menyebabkan peningkatan kadar glukosa dalam darah. Pemeriksaan pada penyakit Diabetes dalam dunia medis dapat dilakukan dengan cara pendiagnosaan penyakit berdasarkan gejala-gejala yang diderita oleh penderita yang dapat menghasilkan data hasil uji laboratorium dan rekam medis gejala sakit.
+Diabetes merupakan penyakit yang disebabkan oleh gagalnya organ pankreas memproduksi jumlah hormon insulin secara memadai sehingga menyebabkan peningkatan kadar glukosa dalam darah. Diabetes telah menjadi penyakit kronis yang mendominasi angka kesakitan dan kematian beberapa tahun terakhir.
 
 Data dari WHO mengatakan bahwa tahun 2015 ada sekitar 415 juta penderita Diabetes di Indonesia. Prediksi berbicara bahwa di tahun 2040, penderita akan bertambah menjadi 2040. Peningkatan penderita Diabetes meningkat dari 5,7 % menjadi 6,9 %. jumlah pastinya sekitar 9,1 juta di tahun 2013.
 
-Untuk meminimalisir angka kematian dari penyakit Diabetes ini, para pakar kesehatan harus melakukan pendiagnosaan penyakit sedini mungkin. Klasifikasi dapat dijadikan salah satu penanganan dini dari penyakit ini. Dataset pada proyek ini digunakan untuk membangun model pembelajaran mesin yang dapat memprediksi kemungkinan diabetes pada pasien berdasarkan riwayat medis dan detail demografis mereka.
+Untuk meminimalisir angka kematian dari penyakit Diabetes ini, para pakar kesehatan harus melakukan pendiagnosaan penyakit sedini mungkin. Oleh karena itu, diperlukan suatu model pembelajaran mesin yang dapat membantu mendeteksi kemungkinan penyakit diabetes dengan tingkat analisis yang akurat, sehingga para pakar kesehatan dapat menangani pasien lebih dini untuk mengurangi jumlah penderita dan kematian.
 
-Referensi:   https://p2ptm.kemkes.go.id/kegiatan-p2ptm/subdit-penyakit-diabetes-melitus-dan-gangguan-metabolik/perlunya-deteksi-dini-untuk-cegah-dan-kurangi-risiko-diabetes
 
 # Business Understanding
-- Problem Statement
-Berdasarkan penjelasan yang telah disampaikan sebelumnya, maka problem statements (rumusan masalah), yaitu sebagai berikut
-Faktor-faktor apa saja yang dapat mempengaruhi kemungkinan penyakit diabetes?
+### Problem Statement
+Berdasarkan penjelasan yang telah disampaikan sebelumnya, maka _problem statement_ (rumusan masalah), yaitu sebagai berikut.
+Faktor-faktor apa saja yang dapat mempengaruhi kemungkinan penyakit diabetes.
 
-- Goals
+### Goals
 Tujuan yang ingin dicapai dari prediksi diabetes adalah
-Mengetahui faktor apa saja yang dapat berpengaruh dalam penyakit diabetes
-Membuat aplikasi yang dapat memprediksi kemungkinan diabetes pada pasien berdasarkan riwayat medis, dan mencari nilai _accuracy_ terbaik 
+Mengetahui faktor apa saja yang dapat berpengaruh dalam penyakit diabetes,mencari model _machine learning_ yang  memiliki  nilai _accuracy_ terbaik dalam mendeteksi penyakit diabetes. 
 
-- Solution statements
-Solusi yang dapat dilakukan untuk menangani permasalahan sebagaimana terdapat dalam _problem statements_, yaitu dengan membuat aplikasi prediksi diabetes. Adapun aplikasi tersebut dibuat dengan menerapkan teknologi _machine learning_ serta bahasa pemrograman python. Algoritma machine learning yang akan digunakan, yaitu _Logistic Regression_, _K Nearest Neighbor(KNN)_, dan _Decision Tree_.
+### Solution statements
+Solusi yang dapat dilakukan untuk menangani permasalahan sebagaimana terdapat dalam _problem statements_, yaitu dengan membuat model prediksi diabetes. Adapun aplikasi tersebut dibuat dengan menerapkan teknologi _machine learning_ serta bahasa pemrograman python. Algoritma _machine learning_ yang akan digunakan, yaitu _Logistic Regression_, _K Nearest Neighbor(KNN)_, dan _Decision Tree_.
 
 # Data Understanding
-Data yang digunakan adalah dataset yang bersumber dari situs Kaggle yang berisi dataset terkait diabetes. Dataset yang digunakan dapat didownload pada [link berikut ini](https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset/code)
+Data yang digunakan adalah dataset yang bersumber dari situs Kaggle yang berisi dataset terkait diabetes. Dataset yang digunakan dapat didownload pada [link](https://www.kaggle.com/datasets/iammustafatz/diabetes-prediction-dataset/code) berikut ini
 
-Jumlah data yang terdapat di dalam file tersebut sebanyak 100000 data. Variabel-variabel yang terdapat dalam dataset Diabetes:
-- gender = Mengacu pada jenis kelamin biologis seseorang, yang dapat berdampak pada kerentanan mereka terhadap diabetes. Ada tiga kategori di dalamnya, yaitu _ male_, _female_. dan _other_.
-  
+File ini berisi data medis dan demografis 100.000 pasien bersama dengan status diabetes mereka, baik positif maupun negatif. Data ini terdiri dari berbagai fitur seperti _age_, _gender_, _body mass index (BMI)_, _hypertension_, _heart disease_, _smoking history_, _HbA1c level_, dan _blood glucose level_. 
+
+### Variabel-variabel yang terdapat dalam dataset Diabetes:
+- gender = Mengacu pada jenis kelamin biologis seseoraBerng, yang dapat berdampak pada kerentanan mereka terhadap diabetes. Ada tiga kategori di dalamnya, yaitu _ male_, _female_. dan _other_.
+
 - age = Mengacu pada usia,merupakan salah satu  faktor penting karena diabetes lebih sering didiagnosis pada orang dewasa yang lebih tua, usia berkisar antara 0-80 pada dataset ini.
 
 - hypertension = Kondisi medis dimana tekanan darah di arteri terus meningkat. Ini memiliki nilai 0 atau 1 di mana 0 menunjukkan mereka tidak memiliki hipertensi dan untuk 1 berarti mereka memiliki hipertensi.
@@ -41,58 +40,86 @@ Jumlah data yang terdapat di dalam file tersebut sebanyak 100000 data. Variabel-
 
 - blood_glucose_level = Mengacu pada jumlah glukosa dalam aliran darah pada waktu tertentu. Kadar glukosa darah yang tinggi adalah atau lebih dari 140 bisa menjadi indikator utama diabetes.
 
-- diabetes = Variabel target yang diprediksi, dengan nilai 1 menunjukkan adanya diabetes dan 0 menunjukkan tidak adanya diabetes.
+- diabetes = Variabel target yang diprediksi, dengan nilai 1 menunjukkan adanya diabetes(positif) dan 0 menunjukkan tidak adanya diabetes(negatif).
 
 # Data Preparation
 Teknik _data preparation_ yang dilakukan, yaitu sebagai berikut:
 - Mengubah dataset diabetes menjadi _dataframe_ dengan menggunakan pandas.
-- Melakukan _exploratory data analysis_ untuk memahami variabel-variabel yang terdapat dalam dataset.
-- Memvisualisasikan data dengan menggunakan plot.
-- Memvisualisasikan data persentase dengan diagram pie.
+- Melakukan _exploratory data analysis_ untuk memahami variabel-variabel yang terdapat dalam dataset. Menggunakan _univariate analysis_ dan _bivariate analysis_. Dalam analisis univariat, variabel tersebut dipelajari secara terpisah tanpa mempertimbangkan hubungannya dengan variabel lain.
+  
+![unigender](https://github.com/zashnf/Predictive-Analytic/assets/89719711/f64f195c-d641-41c9-872b-9ce3c50becda)
+Gambar 1. Fitur Gender
+
+
+![unsmok](https://github.com/zashnf/Predictive-Analytic/assets/89719711/5fb59602-baf5-4653-84ca-d02cbbf4c320)
+Gambar 2. Fitur Smoking history
+
+Sedangkan analisis bivariat adalah metode analisis data yang digunakan untuk menganalisis hubungan antara dua variabel atau lebih dalam satu waktu.
+![bivasmokgen](https://github.com/zashnf/Predictive-Analytic/assets/89719711/28d1db80-4778-4d32-a4d6-52e1d6131194)
+Gambar 3. Fitur Smoking history dan gender
+
+![bigendia](https://github.com/zashnf/Predictive-Analytic/assets/89719711/1e3c60d7-f4c5-4c64-a609-765fe477969e)
+Gambar 4. Fitur gender dan diabetes
+
 - Membagi data menjadi data latih dan data uji. Pada proyek ini saya membagi data latih menjadi 70% dan data uji sebesar 30%.
-- Melakukan proses _encoding_, dimana _encoding_ sendiri merupakan proses yang mengubah data kategorikal menjadi data numerikal.Dalam hal ini meng_encode_ _gender_ dan _smoking_history_ karena nilai pada data tersebut masih kategorikal sehingga harus diubah menjari numerik.
+- Melakukan proses _encoding_, dimana _encoding_ sendiri merupakan proses yang mengubah data kategorik menjadi data numerik.Dalam hal ini meng_encode_ _gender_ dan _smoking_history_ karena nilai pada data tersebut masih kategorikal sehingga harus diubah menjadi numerik.
 - Melakukan _feature selection_ untuk menyaring fitur-fitur penting karena semua fitur yang ada dalam dataset tidak sama pentingnya. Menggunakan _variance Threshold_ pada data latih untuk mengecheck apakah ada fitur yang memiliki varians rendah.
-![download (5)](https://github.com/zashnf/Predictive_Systems/assets/89719711/3eb71f93-fc8c-4d66-9766-5ae6de6c49cd)
-Gambar 1.
+![download (5)](https://github.com/zashnf/Predictive-Analytic/assets/89719711/65e6772e-628e-4429-9fd8-6c6ae5badded)
+
+Gambar 5.
+
 - Menangani data set yang tidak seimbang menggunakan SMOTE
 
-![download (2)](https://github.com/zashnf/Predictive_Systems/assets/89719711/44e3168f-2ff4-4a03-b626-17c59e623511)
-
-Gambar 2.
-
-Menurut countplot diatas , dataset yang digunakan tidak seimbang( pada 1 kelas/kategori memiliki jumlah contoh yang jauh lebih besar daripada kelas lainnya). Sehingga disini dapat menggunakan SMOTE (_Synthetic Minority Over-sampling Technique_) untuk mengatasi masalah ketidakseimbangan kelas dengan meningkatkan jumlah instance dalam kelas minoritas.
+![download (2)](https://github.com/zashnf/Predictive-Analytic/assets/89719711/895302bb-ab46-4d9b-9a2b-2fb0eb002247)
+Gambar 6.
+ 
+Menurut Gambar 6. dataset yang digunakan tidak seimbang (pada 1 kelas/kategori memiliki jumlah contoh yang jauh lebih besar daripada kelas lainnya). Sehingga disini dapat menggunakan SMOTE (_Synthetic Minority Over-sampling Technique_) untuk mengatasi masalah ketidakseimbangan kelas dengan meningkatkan jumlah instance dalam kelas minoritas.
 Metode SMOTE digunakan karena adanya ketidakseimbangan pada kategori diabetes
+ ![before](https://github.com/zashnf/Predictive-Analytic/assets/89719711/dbdf2477-5c38-4dc5-a04d-237dacc43204)
+Gambar 7.
 
-![Capture](https://github.com/zashnf/Predictive_Systems/assets/89719711/70be4de1-4d15-4859-beb2-e49ca4b92d92)
-Gambar 3.
-
-
+ ![after](https://github.com/zashnf/Predictive-Analytic/assets/89719711/a3253f0d-51e7-4aa7-83cf-d7b6b8f74f8a)
+Gambar 8.
+ 
+ 
 - Melakukan pelatihan model ( _Logistic Regression, K Nearest Neighbor,_ dan _Decision Tree_).
 
 
-# Modeling
-Model _machine learning_ yang digunakan pada proyek ini adalah _Logistic Regression_,_K Nearest Neighbor_,dan _Decision Tree_.
 
-- _Logistic Regression_ adalah salah satu algoritma Machine Learning yang paling populer, yang termasuk dalam teknik _Supervised Learning_. Algoritma ini digunakan untuk memprediksi variabel dependen kategorik dengan menggunakan sekumpulan variabel independen.
+# Modeling
+Pada tahap ini model _machine learning_ yang digunakan antara lainnya adalah _Logistic Regression_,_K Nearest Neighbor_,dan _Decision Tree_.
+
+### - _Logistic Regression_ 
+ _Logistic Regression_ adalah salah satu algoritma Machine Learning yang paling populer, yang termasuk dalam teknik _Supervised Learning_. Algoritma ini digunakan untuk memprediksi variabel dependen kategorik dengan menggunakan sekumpulan variabel independen.
 Cara Kerja _Logistic   Regression_   menghitung   nilai   probabilitas   suatu _instance_ data masuk ke dalam kelas tertentu. Hal ini dilakukan dengan memperhitungkan bobot setiap variabel input pada suatu fungsi logistik. 
 Fungsi logistik digunakan untuk mengubah hasil perhitungan bobot variabel input menjadi nilai probabilitas yang berkisar antara 0 dan 1. Dalam proses training,_ Logistic Regression_ meminimalkan _error_   prediksi   dengan   memperbarui   bobot   variabel   input menggunakan   teknik   optimasi   seperti   _Gradient   Descent_. Tujuannya   adalah   untuk   menemukan   bobot   yang   terbaik sehingga model dapat memprediksi kelas dari instance data yang belum dilihat dengan akurasi yang tinggi
 Kelebihan dari _Logistic Regression_ antara lain sangat efektif untuk klasifikasi data biner, sangat mudah diimplementasikan dan diinterpretasikan, dapat digunakan pada dataset yang memiliki banyak variabel input.
 Selain kelebihan yang dimiliki ia juga memiliki kekurangan seperti tidak   efektif   untuk   klasifikasi   data   yang   kompleks   dengan banyak variabel input, rentan terhadap overfitting jika digunakan  pada dataset  yang tidak seimbang, tidak   dapat   mengatasi   masalah   _multicollinearity _  di   antara variabel input.
+Parameter yang digunakan pada model ini :
+max_iter = Jumlah iterasi maksimum yang dibutuhkan agar pemecah masalah mencapai konvergen. Misal max_iter=1000 berarti algoritma akan mengambil kesempatan hingga 1000 iterasi untuk mendapatkan nilai konvergensi yang diberikan.
 
-- _K Nearest Neighbor (KNN)_ adalah teknik pembelajaran mesin yang populer digunakan untuk tugas klasifikasi dan regresi. Algoritma ini bergantung pada gagasan bahwa titik data yang serupa cenderung memiliki label atau nilai yang serupa.
+
+### _K Nearest Neighbor (KNN)_ 
+_K Nearest Neighbor (KNN)_adalah teknik pembelajaran mesin yang populer digunakan untuk tugas klasifikasi dan regresi. Algoritma ini bergantung pada gagasan bahwa titik data yang serupa cenderung memiliki label atau nilai yang serupa.
 Selama fase pelatihan, algoritma KNN menyimpan seluruh kumpulan data pelatihan sebagai referensi. Saat membuat prediksi, algoritma ini menghitung jarak antara titik data input dan semua contoh pelatihan, menggunakan metrik jarak yang dipilih seperti jarak Euclidean.
 Selanjutnya, algoritma mengidentifikasi K tetangga terdekat dari titik data input berdasarkan jaraknya. Dalam kasus klasifikasi, algoritma memberikan label kelas yang paling umum di antara K tetangga sebagai label yang diprediksi untuk titik data input. Untuk regresi, algoritma ini menghitung rata-rata atau rata-rata tertimbang dari nilai target dari K tetangga untuk memprediksi nilai untuk titik data input.
 Mendefinisikan k dapat menjadi tindakan penyeimbang karena nilai yang berbeda dapat menyebabkan _overfitting_ atau _underfitting_. Nilai k yang lebih rendah dapat memiliki varians yang tinggi, tetapi bias yang rendah. Sedangkan nilai k yang lebih besar dapat menyebabkan bias yang tinggi dan varians yang lebih rendah. 
-Pilihan k akan sangat bergantung pada data input karena data dengan lebih banyak _outlier_ atau _noise _kemungkinan akan berkinerja lebih baik dengan nilai k yang lebih tinggi. Secara keseluruhan, disarankan untuk memilih nilai k berupa angka ganjil untuk menghindari ikatan dalam klasifikasi. Nilai k pada algoritma KNN mendefinisikan berapa banyak tetangga yang akan diperiksa untuk menentukan klasifikasi titik kueri tertentu. Misalnya, jika k=1, _instance_ akan ditugaskan ke kelas yang sama dengan tetangga terdekatnya. 
-Kelebihan dari _K Nearest Neighbor _adalah mudah dipahami dan diimplementasikan.  Namun kekurangannya adalah ia masih perlu menunjukkan parameter k (jumlah tetangga terdekat), tidak menangani nilai hilang (_missing value_) secara implisit.
+Pilihan k akan sangat bergantung pada data input karena data dengan lebih banyak _outlier_ atau _noise _ kemungkinan akan berkinerja lebih baik dengan nilai k yang lebih tinggi. Secara keseluruhan, disarankan untuk memilih nilai k berupa angka ganjil untuk menghindari ikatan dalam klasifikasi. Nilai k pada algoritma KNN mendefinisikan berapa banyak tetangga yang akan diperiksa untuk menentukan klasifikasi titik kueri tertentu. Misalnya, jika k=1, _instance_ akan ditugaskan ke kelas yang sama dengan tetangga terdekatnya. 
+Kelebihan dari _K Nearest Neighbor_ adalah mudah dipahami dan diimplementasikan.  Namun kekurangannya adalah ia masih perlu menunjukkan parameter k (jumlah tetangga terdekat), tidak menangani nilai hilang (_missing value_) secara implisit.
+Parameter yang digunakan pada model ini:
+n_neighbors: Parameter ini menentukan jumlah tetangga terdekat yang akan digunakan dalam proses klasifikasi. Nilai yang umumnya digunakan adalah bilangan ganjil untuk menghindari situasi kesetimbangan kelas. Jumlah tetangga yang terlalu rendah dapat menghasilkan model yang sensitif terhadap noise, sementara jumlah tetangga yang terlalu tinggi dapat menghasilkan model yang terlalu umum.
 
-- _Decision tree _adalah jenis algoritma klasifikasi yang strukturnya mirip seperti sebuah pohon yang memiliki akar, ranting, dan daun. Simpul akar (_internal node_) mewakili fitur pada dataset, simpul ranting (_branch node_) mewakili aturan keputusan (_decision rule_), dan tiap-tiap simpul daun (_leaf node_) mewakili hasil keluaran.
+
+###  _Decision tree_
+ _Decision tree _ adalah jenis algoritma klasifikasi yang strukturnya mirip seperti sebuah pohon yang memiliki akar, ranting, dan daun. Simpul akar (_internal node_) mewakili fitur pada dataset, simpul ranting (_branch node_) mewakili aturan keputusan (_decision rule_), dan tiap-tiap simpul daun (_leaf node_) mewakili hasil keluaran.
 Kelebihan dari algoritma ini antara lain memiliki akurasi yang baik, dapat menemukan kombinasi data yang tidak terduga, dapat menghilangkan perhitungan yang tidak diperlukan, karena dengan metode ini sampel hanya diuji berdasarkan kriteria atau kelas tertentu.
 Kekurangan dari algoritma ini diantaranya tumpang tindih dapat terjadi jika banyak kelas dan kriteria yang digunakan, sehingga dapat menyebabkan waktu keputusan menjadi lebih lama dan memori yang dibutuhkan juga lebih besar. 
+Parameter yang digunakan pada model ini :
+max_depth: Parameter ini menentukan kedalaman maksimum dari setiap pohon dalam model. Kedalaman yang lebih dalam dapat menghasilkan model yang lebih kompleks, tetapi juga dapat menyebabkan _overfitting_.
 
 # Evaluation
 Metrik evaluasi yang digunakan antara lain adalah metrik _accuracy_, _precision_, _recall_, dan _F1 score_. Di mana:
-- _Accuracy_ = Menggambarkan seberapa akurat model dapat mengklasifikasikan dengan benar.  Dengan kata lain, _accuracy _merupakan tingkat kedekatan nilai prediksi dengan nilai sebenarnya.
+- _Accuracy_ = Menggambarkan seberapa akurat model dapat mengklasifikasikan dengan benar.  Dengan kata lain, _accuracy_ merupakan tingkat kedekatan nilai prediksi dengan nilai sebenarnya.
 Accuracy = (TP + TN )/ (TP+FP+FN+TN)
 
 - Presisi = Merupakan rasio prediksi benar positif dibandingkan dengan keseluruhan hasil yang diprediksi positif.
@@ -102,21 +129,23 @@ Precision = (TP) / (TP+FP)
 Recall = (TP) / (TP + FN)
 
 - _F1 Score_ = Merupakan perbandingan rata-rata presisi dan recall yang dibobotkan
-F1 Score = 2 * (Recall*Precission) / (Recall + Precission)
+F1 Score = 2 * (Recall*Precision) / (Recall + Precision)
 
-Kesimpulan dari proyek ini didapati bahwa faktor-faktor yang dapat mempengaruhi kemungkinan penyakit diabetes lebih banyak terjadi pada seseorang dengan riwayat merokok aktif dan lebih banyak menyerang ke wanita (_female_), untuk visualisasi perbandingannya dapat dilihat pada gambar dibawah ini.
-![download (4)](https://github.com/zashnf/Predictive_Systems/assets/89719711/2a68457f-1869-496c-8ebc-962e3b524df0)
 
-Gambar 4.
+Tabel 1.
 
-![download (3)](https://github.com/zashnf/Predictive_Systems/assets/89719711/57a75876-45d9-4b5f-a742-a4b64aa32116)
+|                	  	     |   **accuracy**  |   **precision**  |  **recall** | **f1-score** |
+| --------------------------------| --------------------| --------------------| --------------| ----------------| 
+| **Logistic Regression** | 0.88                 |  0.99	         | 0.89          | 0.93            |
+| **KNN** 		     | 0.93                 |  0.97	         | 0.95          | 0.96            |
+| **Decision Tree**     	     | 0.91                 |  0.91	         | 1.00          | 0.95             |
 
-Gambar 5.
+Berdasarkan Tabel 1. Dapat disimpulkan bahwa nilai akurasi terbaik ada pada model _KNN_ dengan nilai 0.93 kemudian diikuti oleh model _Decision Tree_ dengan nilai akurasi sebesar 0.91 dan diperingkat terakhir ditempati oleh model _Logistic Regression_ yang memiliki nilai akurasi sebesar 0.88.
+Untuk visualisasi perbandingan akurasi masing masing model dapat dilihat pada Gambar 9 dibawah ini.
+![modelakurasi](https://github.com/zashnf/Predictive-Analytic/assets/89719711/e8838658-4712-4064-9908-2b2103eb642b)
+Gambar 9.
 
-Dengan perhitungan metrik evaluasi saya mengambil nilai _accuracy_ dari tiap tiap model algoritma untuk dibandingkan di dalam satu bar plot untuk melihat dari model manakah yang _accuracy_nya lebih baik.
+Referensi:   
+https://p2ptm.kemkes.go.id/kegiatan-p2ptm/subdit-penyakit-diabetes-melitus-dan-gangguan-metabolik/perlunya-deteksi-dini-untuk-cegah-dan-kurangi-risiko-diabetes
 
-![download (1)](https://github.com/zashnf/Predictive_Systems/assets/89719711/d9df4e07-d67b-4a93-ba5c-df8d6ea5675e)
-
-Gambar 6.
-Pada gambar 6  dapat dilihat bahwa model KNN memiliki nilai _accuraccy_ tertinggi dibanding dengan _Logistic Regression_ dan _Decision Tree_.
-
+https://www.analyticsvidhya.com/blog/2015/11/beginners-guide-on-logistic-regression-in-r/
