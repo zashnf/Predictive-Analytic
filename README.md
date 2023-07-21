@@ -42,7 +42,7 @@ File ini berisi data medis dan demografis 100.000 pasien bersama dengan status d
 
 - diabetes = Variabel target yang diprediksi, dengan nilai 1 menunjukkan adanya diabetes(positif) dan 0 menunjukkan tidak adanya diabetes(negatif).
  
-_exploratory data analysis_ digunakan untuk memahami variabel-variabel yang terdapat dalam dataset._univariate analysis_ dan _bivariate analysis_. Dalam analisis univariat, variabel tersebut dipelajari secara terpisah tanpa mempertimbangkan hubungannya dengan variabel lain.
+Membuat _exploratory data analysis_ yang digunakan untuk memahami variabel-variabel yang terdapat dalam dataset. EDA disini terdiri dari_univariate analysis_ dan _bivariate analysis_. Dalam analisis univariat, variabel tersebut dipelajari secara terpisah tanpa mempertimbangkan hubungannya dengan variabel lain.
   
 ![unigender](https://github.com/zashnf/Predictive-Analytic/assets/89719711/f64f195c-d641-41c9-872b-9ce3c50becda)
 
