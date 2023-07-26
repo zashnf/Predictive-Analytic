@@ -59,6 +59,7 @@ Tabel 1.  Hasil Analisis Fitur Gender
 | **Male** 		|   41430  |   41.430      | 
 | **Other**  |    18    |   0.018       |   
 
+Dari Gambar 1 dapat dilihat bahwa jumlah _Female_ jauh lebih banyak dibandingkan dengan _Male_ . Untuk persentasenya dapat dilihat pada Tabel 1 bahwa jumlah _Female_ ada sebanyak 58.6% dan _Male_ sebesar 41.4%.
 
 ![unsmok](https://github.com/zashnf/Predictive-Analytic/assets/89719711/5fb59602-baf5-4653-84ca-d02cbbf4c320)
 
