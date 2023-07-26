@@ -1,18 +1,21 @@
-# Domain proyek
-Diabetes merupakan penyakit yang disebabkan oleh gagalnya organ pankreas memproduksi jumlah hormon insulin secara memadai sehingga menyebabkan peningkatan kadar glukosa dalam darah. Diabetes telah menjadi penyakit kronis yang mendominasi angka kesakitan dan kematian beberapa tahun terakhir. [JuKeUnila 2014;4(7):114-119]
+# Predictive Analysis - Zashika Hanifa
+
+## Domain Proyek
+Diabetes merupakan penyakit yang disebabkan oleh gagalnya organ pankreas memproduksi jumlah hormon insulin secara memadai sehingga menyebabkan peningkatan kadar glukosa dalam darah. Diabetes telah menjadi penyakit kronis yang sangat mengancam kesehatan masyarakat. Kebanyakan orang tidak menyadari gejala awal dari penyakit ini, hingga konsekuensi jangka panjang dari diabetes, pasien berada dalam situasi kritis.[1]
  
-Data dari WHO mengatakan bahwa tahun 2015 ada sekitar 415 juta penderita Diabetes di Indonesia. Prediksi berbicara bahwa di tahun 2040, penderita akan bertambah menjadi 2040. Peningkatan penderita Diabetes meningkat dari 5,7 % menjadi 6,9 %. jumlah pastinya sekitar 9,1 juta di tahun 2013. [Pusdatin 2020:1-3]
+Ada 537 juta orang yang hidup dengan diabetes saat ini. Diperkirakan pada tahun 2045, 700 juta orang akan menderita penyakit ini di seluruh dunia. Diabetes memiliki efek merusak pada individu, dan menyebabkan lebih dari 4 juta kematian per tahun.[2]
  
 Untuk meminimalisir angka kematian dari penyakit Diabetes ini, para pakar kesehatan harus melakukan pendiagnosaan penyakit sedini mungkin. Oleh karena itu, diperlukan suatu model pembelajaran mesin yang dapat membantu mendeteksi kemungkinan penyakit diabetes dengan tingkat analisis yang akurat, sehingga para pakar kesehatan dapat menangani pasien lebih dini untuk mengurangi jumlah penderita dan kematian.
  
  
-# Business Understanding
+## Business Understanding
+
 ### Problem Statement
 Berdasarkan penjelasan yang telah disampaikan sebelumnya, maka _problem statement_ (rumusan masalah), yaitu sebagai berikut.
 Faktor-faktor apa saja yang dapat mempengaruhi kemungkinan penyakit diabetes.
  
 ### Goals
-Tujuan yang ingin dicapai dari prediksi diabetes adalah
+Tujuan yang ingin dicapai dari pembuatan _machine learning_ prediksi diabetes antara lainnya adalah:
 Mengetahui faktor apa saja yang dapat berpengaruh dalam penyakit diabetes,mencari model _machine learning_ yang  memiliki  nilai _accuracy_ terbaik dalam mendeteksi penyakit diabetes. 
  
 ### Solution statements
@@ -48,11 +51,30 @@ Membuat _exploratory data analysis_ yang digunakan untuk memahami variabel-varia
 
 Gambar 1. Fitur Gender
  
- 
+Tabel 1.  Hasil Analisis Fitur Gender
+        
+|            | **count**| **percentage**| 
+| -----------| ---------| --------------|
+| **Female** |   58522  |   58.552      | 
+| **Male** 		|   41430  |   41.430      | 
+| **Other**  |    18    |   0.018       |   
+
+
 ![unsmok](https://github.com/zashnf/Predictive-Analytic/assets/89719711/5fb59602-baf5-4653-84ca-d02cbbf4c320)
 
 Gambar 2. Fitur Smoking history
  
+Tabel 2. Hasil Analisis Fitur Smoking History
+
+|                |  **count**  |**percentage**|
+| ------------   | ------------| ------------ |
+| **No Info**    |    35816    |    35.816    |
+| **never**      |    35095    |    35.095    |
+| **former**     |    9352     |     9.352    |
+| **current**    |    9286     |     9.286    |
+| **not current**|    6447     |     6.447    |
+| **ever**       |    4004     |     4.004    |
+
 Sedangkan analisis bivariat adalah metode analisis data yang digunakan untuk menganalisis hubungan antara dua variabel atau lebih dalam satu waktu.
 
 ![bivasmokgen](https://github.com/zashnf/Predictive-Analytic/assets/89719711/28d1db80-4778-4d32-a4d6-52e1d6131194)
@@ -63,37 +85,46 @@ Gambar 3. Fitur Smoking history dan gender
 
 Gambar 4. Fitur gender dan diabetes
 
-# Data Preparation
+## Data Preparation
 Teknik _data preparation_ yang dilakukan, yaitu sebagai berikut:
 - Mengubah dataset diabetes menjadi _dataframe_ dengan menggunakan pandas.
 - Membagi data menjadi data latih dan data uji. Pada proyek ini saya membagi data latih menjadi 70% dan data uji sebesar 30%.
 - Melakukan proses _encoding_, dimana _encoding_ sendiri merupakan proses yang mengubah data kategorik menjadi data numerik.Dalam hal ini meng_encode_ _gender_ dan _smoking_history_ karena nilai pada data tersebut masih kategorikal sehingga harus diubah menjadi numerik.
 - Melakukan _feature selection_ untuk menyaring fitur-fitur penting karena semua fitur yang ada dalam dataset tidak sama pentingnya. Menggunakan _variance Threshold_ pada data latih untuk mengecheck apakah ada fitur yang memiliki varians rendah.
-![download (5)](https://github.com/zashnf/Predictive-Analytic/assets/89719711/65e6772e-628e-4429-9fd8-6c6ae5badded)
- 
+
+![corr](https://github.com/zashnf/Predictive-Analytic/assets/89719711/20bfad2c-d489-47fd-9628-6f0c99591d92)
+
 Gambar 5. Correlation Matrix
- 
+
+Koefisien korelasi berkisar antara -1 dan +1. Ia mengukur kekuatan hubungan antara dua variabel serta arahnya (positif atau negatif). Mengenai kekuatan hubungan antar variabel, semakin dekat nilainya ke 1 atau -1, korelasinya semakin kuat. Sedangkan, semakin dekat nilainya ke 0, korelasinya semakin lemah. Pada gambar 5 dapat dilihat bahwa tidak ada fitur yang berkorelasi tinggi satu sama lain. 
+
 - Menangani data set yang tidak seimbang menggunakan SMOTE
  
 ![download (2)](https://github.com/zashnf/Predictive-Analytic/assets/89719711/895302bb-ab46-4d9b-9a2b-2fb0eb002247)
 
 Gambar 6. Imbalance data
  
-Menurut Gambar 6. dataset yang digunakan tidak seimbang (pada 1 kelas/kategori memiliki jumlah contoh yang jauh lebih besar daripada kelas lainnya). Sehingga disini dapat menggunakan SMOTE (_Synthetic Minority Over-sampling Technique_) untuk mengatasi masalah ketidakseimbangan kelas dengan meningkatkan jumlah instance dalam kelas minoritas.
-Metode SMOTE digunakan karena adanya ketidakseimbangan pada kategori diabetes
+
+Analisa
+
+
+Menurut Gambar 6. dataset yang digunakan tidak seimbang (pada 1 kelas/kategori memiliki jumlah contoh yang jauh lebih besar daripada kelas lainnya). 
 
 ![before](https://github.com/zashnf/Predictive-Analytic/assets/89719711/dbdf2477-5c38-4dc5-a04d-237dacc43204)
  
 Gambar 7. Sebelum menggunakan SMOTE
  
+Pada Gambar 7 dapat dilihat bahwa pada kelas 0 terdapat 91.5% dan pada kelas 1 hanya sekitar 8.5%,sehingga terjadi ketidakseimbangan antar kelas 0 dan 1. Oleh karena itu kita dapat menggunakan SMOTE (_Synthetic Minority Over-sampling Technique_) untuk mengatasi masalah ketidakseimbangan kelas dengan meningkatkan jumlah instance dalam kelas minoritas dalam hal ini kelas 1.
  ![after](https://github.com/zashnf/Predictive-Analytic/assets/89719711/a3253f0d-51e7-4aa7-83cf-d7b6b8f74f8a)
- 
+
 Gambar 8. Setelah menggunakan SMOTE
  
+Setelah menggunakan SMOTE  (_Synthetic Minority Over-sampling Technique_) dapat dilihat pada gambar 8 bahwa nilai antar kelas 0 dan 1 sudah sama yaitu 50% dan 50%, sehingga sudah tidak ada ketidakseimbangan antar kelas.
+
 - Melakukan pelatihan model ( _Logistic Regression, K Nearest Neighbor,_ dan _Decision Tree_).
  
  
-# Modeling
+## Modeling
 Pada tahap ini model _machine learning_ yang digunakan antara lainnya adalah _Logistic Regression_,_K Nearest Neighbor_,dan _Decision Tree_.
  
 ### - _Logistic Regression_ 
@@ -113,7 +144,7 @@ Mendefinisikan k dapat menjadi tindakan penyeimbang karena nilai yang berbeda da
 Pilihan k akan sangat bergantung pada data input karena data dengan lebih banyak _outlier_ atau _noise _ kemungkinan akan berkinerja lebih baik dengan nilai k yang lebih tinggi. Secara keseluruhan, disarankan untuk memilih nilai k berupa angka ganjil untuk menghindari ikatan dalam klasifikasi. Nilai k pada algoritma KNN mendefinisikan berapa banyak tetangga yang akan diperiksa untuk menentukan klasifikasi titik kueri tertentu. Misalnya, jika k=1, _instance_ akan ditugaskan ke kelas yang sama dengan tetangga terdekatnya. 
 Kelebihan dari _K Nearest Neighbor_ adalah mudah dipahami dan diimplementasikan.  Namun kekurangannya adalah ia masih perlu menunjukkan parameter k (jumlah tetangga terdekat), tidak menangani nilai hilang (_missing value_) secara implisit.
 Parameter yang digunakan pada model ini:
-n_neighbors: Parameter ini menentukan jumlah tetangga terdekat yang akan digunakan dalam proses klasifikasi. Nilai yang umumnya digunakan adalah bilangan ganjil untuk menghindari situasi kesetimbangan kelas. Jumlah tetangga yang terlalu rendah dapat menghasilkan model yang sensitif terhadap noise, sementara jumlah tetangga yang terlalu tinggi dapat menghasilkan model yang terlalu umum.
+n_neighbors: Parameter ini menentukan jumlah tetangga terdekat yang akan digunakan dalam proses klasifikasi. Nilai yang umumnya digunakan adalah bilangan ganjil untuk menghindari situasi kesetimbangan kelas. Jumlah tetangga yang terlalu rendah dapat menghasilkan model yang sensitif terhadap noise, sementara jumlah tetangga yang terlalu tinggi dapat menghasilkan model yang terlalu umum. Disini saya menggunakan n_neighbors sebesar 25.
  
  
 ###  _Decision tree_
@@ -123,7 +154,7 @@ Kekurangan dari algoritma ini diantaranya tumpang tindih dapat terjadi jika bany
 Parameter yang digunakan pada model ini :
 max_depth: Parameter ini menentukan kedalaman maksimum dari setiap pohon dalam model. Kedalaman yang lebih dalam dapat menghasilkan model yang lebih kompleks, tetapi juga dapat menyebabkan _overfitting_.
  
-# Evaluation
+## Evaluation
 Metrik evaluasi yang digunakan antara lain adalah metrik _accuracy_, _precision_, _recall_, dan _F1 score_. Di mana:
 - _Accuracy_ = Menggambarkan seberapa akurat model dapat mengklasifikasikan dengan benar.  Dengan kata lain, _accuracy_ merupakan tingkat kedekatan nilai prediksi dengan nilai sebenarnya.
 Accuracy = (TP + TN )/ (TP+FP+FN+TN)
@@ -155,6 +186,9 @@ Gambar 9. Perbandingan Hasil Akurasi Model
 
 
 Referensi:   
-JuKeUnila 2014;4(7):114-119
 
-Pusdatin 2020:1-3
+[1] (2020). Machine Learning-based Web Application for Early Diagnosis of Diabetes. Journal of Applied and Emerging Sciences 133–142.
+
+[2] (2021). International Diabetes Federation.
+IDF Diabetes Atlas, 10th edn. Brussels,
+Belgium: International Diabetes Federation.
