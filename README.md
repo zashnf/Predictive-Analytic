@@ -11,7 +11,7 @@ Untuk meminimalisir angka kematian dari penyakit Diabetes ini, para pakar keseha
 ## Business Understanding
 
 ### Problem Statement
-Berdasarkan penjelasan yang telah disampaikan sebelumnya, maka _problem statement_ (rumusan masalah), yaitu sebagai berikut.
+Berdasarkan penjelasan yang telah disampaikan sebelumnya, maka rumusan masalah (_problem statement_), yaitu sebagai berikut.
 Faktor-faktor apa saja yang dapat mempengaruhi kemungkinan penyakit diabetes.
  
 ### Goals
@@ -61,7 +61,7 @@ Tabel 1.  Hasil Analisis Fitur Gender
 
 Dari Gambar 1 dapat dilihat bahwa jumlah _Female_ jauh lebih banyak dibandingkan dengan _Male_ . Untuk persentasenya dapat dilihat pada Tabel 1 bahwa jumlah _Female_ ada sebanyak 58.6% dan _Male_ sebesar 41.4%.
 
-![unsmok](https://github.com/zashnf/Predictive-Analytic/assets/89719711/5fb59602-baf5-4653-84ca-d02cbbf4c320)
+![smokinghistory](https://github.com/zashnf/Predictive-Analytic/assets/89719711/5213151b-4d87-4440-8cdf-9c94fbdbaa7b)
 
 Gambar 2. Fitur Smoking history
  
@@ -76,15 +76,23 @@ Tabel 2. Hasil Analisis Fitur Smoking History
 | **not current**|    6447     |     6.447    |
 | **ever**       |    4004     |     4.004    |
 
+Berdasarkan Gambar 2 dan Tabel 2 dapat dilihat bahwa 35% pasien tidak pernah merokok(_never_) 30% pernah atau masih merokok, dan 35% sisanya tidak diketahui(_no info_).
+
 Sedangkan analisis bivariat adalah metode analisis data yang digunakan untuk menganalisis hubungan antara dua variabel atau lebih dalam satu waktu.
 
-![bivasmokgen](https://github.com/zashnf/Predictive-Analytic/assets/89719711/28d1db80-4778-4d32-a4d6-52e1d6131194)
 
-Gambar 3. Fitur Smoking history dan gender
- 
+![diabetessmokhis](https://github.com/zashnf/Predictive-Analytic/assets/89719711/daade757-07a0-4b8e-b339-c7758b4845cd)
+
+Gambar 3. Analisis fitur Smoking history dan diabetes
+
+Pada Gambar 3 analisis fitur _smoking history_ dan diabetes sebagian orang yang terkena penyakit diabetes merupakan orang yang tidak pernah merokok (_never_) dan mantan perokok (_former_).
+
 ![bigendia](https://github.com/zashnf/Predictive-Analytic/assets/89719711/1e3c60d7-f4c5-4c64-a609-765fe477969e)
 
-Gambar 4. Fitur gender dan diabetes
+
+Gambar 4. Analisis fitur gender dan diabetes
+
+Bedasarkan Gambar 4 dapat dilihat bahwa jumlah orang yang terkena penyakit diabetes antara _female_ dan _male hampir mirip, hanya saja jumlah _female_ sedikit lebih banyak dibandingkan dengan _male_ .
 
 ## Data Preparation
 Teknik _data preparation_ yang dilakukan, yaitu sebagai berikut:
@@ -93,7 +101,8 @@ Teknik _data preparation_ yang dilakukan, yaitu sebagai berikut:
 - Melakukan proses _encoding_, dimana _encoding_ sendiri merupakan proses yang mengubah data kategorik menjadi data numerik.Dalam hal ini meng_encode_ _gender_ dan _smoking_history_ karena nilai pada data tersebut masih kategorikal sehingga harus diubah menjadi numerik.
 - Melakukan _feature selection_ untuk menyaring fitur-fitur penting karena semua fitur yang ada dalam dataset tidak sama pentingnya. Menggunakan _variance Threshold_ pada data latih untuk mengecheck apakah ada fitur yang memiliki varians rendah.
 
-![corr](https://github.com/zashnf/Predictive-Analytic/assets/89719711/20bfad2c-d489-47fd-9628-6f0c99591d92)
+
+![corr](https://github.com/zashnf/Predictive-Analytic/assets/89719711/94aa6c25-ddbd-4b17-a4b9-cb1dfcf704ca)
 
 Gambar 5. Correlation Matrix
 
@@ -104,10 +113,6 @@ Koefisien korelasi berkisar antara -1 dan +1. Ia mengukur kekuatan hubungan anta
 ![download (2)](https://github.com/zashnf/Predictive-Analytic/assets/89719711/895302bb-ab46-4d9b-9a2b-2fb0eb002247)
 
 Gambar 6. Imbalance data
- 
-
-Analisa
-
 
 Menurut Gambar 6. dataset yang digunakan tidak seimbang (pada 1 kelas/kategori memiliki jumlah contoh yang jauh lebih besar daripada kelas lainnya). 
 
@@ -170,7 +175,7 @@ Recall = (TP) / (TP + FN)
 F1 Score = 2 * (Recall*Precision) / (Recall + Precision)
  
  
-Tabel 1. Metrik Evaluasi
+Tabel 3. Metrik Evaluasi
 
  
 |                	  	     |   **accuracy**  |   **precision**  |  **recall** | **f1-score** |
@@ -179,12 +184,15 @@ Tabel 1. Metrik Evaluasi
 | **KNN** 		     | 0.93                 |  0.97	         | 0.95          | 0.96            |
 | **Decision Tree**     	     | 0.91                 |  0.91	         | 1.00          | 0.95             |
  
-Berdasarkan Tabel 1. Dapat disimpulkan bahwa nilai akurasi terbaik ada pada model _KNN_ dengan nilai 0.93 kemudian diikuti oleh model _Decision Tree_ dengan nilai akurasi sebesar 0.91 dan diperingkat terakhir ditempati oleh model _Logistic Regression_ yang memiliki nilai akurasi sebesar 0.88.
+Berdasarkan Tabel 3. Dapat disimpulkan bahwa nilai akurasi terbaik ada pada model _KNN_ dengan nilai 0.93 kemudian diikuti oleh model _Decision Tree_ dengan nilai akurasi sebesar 0.91 dan diperingkat terakhir ditempati oleh model _Logistic Regression_ yang memiliki nilai akurasi sebesar 0.88.
 Untuk visualisasi perbandingan akurasi masing masing model dapat dilihat pada Gambar 9 dibawah ini.
 ![modelakurasi](https://github.com/zashnf/Predictive-Analytic/assets/89719711/e8838658-4712-4064-9908-2b2103eb642b)
 
 Gambar 9. Perbandingan Hasil Akurasi Model
 
+
+## Kesimpulan
+Kesimpulan dari semua model yang telah dievaluasi masing masing model memiliki tingkat akurasi yang relatif tinggi. Hal ini dapat dilihat pada Tabel 3, dimana model _K Nearest Neighbor (KNN)_ memiliki tingkat akurasi yang lebih tinggi dibandingkan dengan model _Decision Tree_ dan _Logistic Regression_.
 
 Referensi:   
 
@@ -193,3 +201,5 @@ Referensi:
 [2] (2021). International Diabetes Federation.
 IDF Diabetes Atlas, 10th edn. Brussels,
 Belgium: International Diabetes Federation.
+
+
