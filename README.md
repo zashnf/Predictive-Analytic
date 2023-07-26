@@ -191,10 +191,10 @@ Untuk visualisasi perbandingan akurasi masing masing model dapat dilihat pada Ga
 Gambar 9. Perbandingan Hasil Akurasi Model
 
 
-## Kesimpulan
+### Kesimpulan
 Kesimpulan dari semua model yang telah dievaluasi masing masing model memiliki tingkat akurasi yang relatif tinggi. Hal ini dapat dilihat pada Tabel 3, dimana model _K Nearest Neighbor (KNN)_ memiliki tingkat akurasi yang lebih tinggi dibandingkan dengan model _Decision Tree_ dan _Logistic Regression_.
 
-Referensi:   
+### Referensi:   
 
 [1] (2020). Machine Learning-based Web Application for Early Diagnosis of Diabetes. Journal of Applied and Emerging Sciences 133–142.
 
